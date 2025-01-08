@@ -25,14 +25,9 @@ class AuthController extends Controller
         try {
             Log::debug('Debugging login data', ['data' => $request->all()]);
 
-            $validated = $request->validate([
-                'username' => ['required', 'string', 'exists:users'],
-                'password' => ['required', 'string', 'min:6'],
-            ]);
-
-            $user = $this->authRepositoryInterface->getByUsername($validated['username']);
+            $user = $this->authRepositoryInterface->getByUsername($request['username']);
             log::debug('User', ['user' => $user]);
-            if (!$user || !Hash::check($validated['password'], $user->password)) {
+            if (!$user || !Hash::check($request['password'], $user->password)) {
                 return ApiResponseClass::sendResponse('error', [], 'Invalid username or password.', 401);
             }
 

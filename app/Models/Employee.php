@@ -10,6 +10,10 @@ class Employee extends Model
 {
     use HasFactory, SoftDeletes;
 
+
+    protected $primaryKey = 'id';
+    public $incrementing = false;
+    protected $keyType = 'string';
     protected $fillable = [
         'image',
         'name',
