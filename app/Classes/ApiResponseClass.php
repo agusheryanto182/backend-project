@@ -35,6 +35,19 @@ class ApiResponseClass
         ], 500));
     }
 
+    public static function handleException($e, $message = "Something went wrong! Process not completed")
+    {
+        Log::error($e);
+
+        $statusCode = $e->getCode() ?: 500;
+
+        throw new HttpResponseException(response()->json([
+            "status" => "error",
+            "message" => $e->getMessage() ?: $message,
+        ], $statusCode));
+    }
+
+
     /**
      * Send a successful response with data and an optional message.
      *
@@ -43,15 +56,36 @@ class ApiResponseClass
      * @param int $code
      * @return \Illuminate\Http\JsonResponse
      */
-    public static function sendResponse($status, $result, $message = null, $code = 200)
+    public static function sendResponse($status, $result, $message = null, $code = 200, $title = 'items')
     {
         $response = [
             'status' => $status,
             'message' => $message,
-            'data'    => $result
         ];
+
+        if ($result) {
+            $response['data'] = [
+                $title => $result
+            ];
+        }
+
         return response()->json($response, $code);
     }
+
+    public static function sendResponseAuth($status, $result, $message = null, $code = 200, $token = null, $title = 'items')
+    {
+        $response = [
+            'status' => $status,
+            'message' => $message,
+            'data' => [
+                'token' => $token,
+                $title => $result
+            ],
+        ];
+
+        return response()->json($response, $code);
+    }
+
 
     /**
      * Send a paginated response with data and pagination info.

@@ -41,7 +41,7 @@ class DivisionController extends Controller
 
             return ApiResponseClass::sendPaginatedResponse('success', DivisionResource::collection($divisions), $pagination, 'divisions', 'Data divisions fetched successfully.');
         } catch (\Exception $e) {
-            return ApiResponseClass::throw($e);
+            return ApiResponseClass::handleException($e);
         }
     }
 }
