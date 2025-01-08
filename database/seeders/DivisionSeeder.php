@@ -20,5 +20,12 @@ class DivisionSeeder extends Seeder
         Division::create(['id' => Str::uuid(), 'name' => 'Backend']);
         Division::create(['id' => Str::uuid(), 'name' => 'Frontend']);
         Division::create(['id' => Str::uuid(), 'name' => 'UI/UX Designer']);
+        Division::create(['id' => Str::uuid(), 'name' => 'Project Manager']);
+        Division::create(['id' => Str::uuid(), 'name' => 'Scrum Master']);
+        Division::create(['id' => Str::uuid(), 'name' => 'IT Support']);
+        Division::create(['id' => Str::uuid(), 'name' => 'HRD']);
+        Division::create(['id' => Str::uuid(), 'name' => 'Wordpress Developer']);
+        Division::create(['id' => Str::uuid(), 'name' => 'Copywriter']);
+        Division::create(['id' => Str::uuid(), 'name' => 'Graphic Designer']);
     }
 }
