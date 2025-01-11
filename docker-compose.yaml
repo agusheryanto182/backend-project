@@ -15,7 +15,7 @@ services:
       - APP_DEBUG=${APP_DEBUG}
       - APP_KEY=${APP_KEY}
     ports:
-      - "${APP_PORT}:9000"
+      - "${APP_PORT}:3000"
     networks:
       - laravel_network
     depends_on:

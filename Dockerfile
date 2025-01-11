@@ -35,8 +35,8 @@ RUN composer install --no-dev --optimize-autoloader \
 COPY entrypoint.sh /usr/local/bin/entrypoint.sh
 RUN chmod +x /usr/local/bin/entrypoint.sh
 
-# Expose port 9000
-EXPOSE 9000
+# Expose port 3000
+EXPOSE 3000
 
 # Use entrypoint script as the default entrypoint
 ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]

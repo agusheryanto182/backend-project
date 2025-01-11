@@ -27,5 +27,5 @@ jobs:
           script: |
             cd /var/repositories/backend-project
             git pull origin master
-            sudo docker compose down
-            sudo docker compose up --build -d
+            docker compose down
+            docker compose up --build -d
