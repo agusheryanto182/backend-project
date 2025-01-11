@@ -20,7 +20,9 @@ class EmployeeResource extends JsonResource
             'name' => $this->name,
             'phone' => $this->phone,
             'division' => DivisionResource::make($this->division),
-            'position' => $this->position
+            'position' => $this->position,
+            'created_at' => $this->created_at,
+            'updated_at' => $this->updated_at
         ];
     }
 }

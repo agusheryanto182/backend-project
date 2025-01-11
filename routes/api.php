@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DivisionController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\EmployeeController;
+use App\Http\Controllers\UserController;
 
 Route::get('/user', function (Request $request) {
     return $request->user();
@@ -19,6 +20,9 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::post('/employees', [EmployeeController::class, 'store']);
     Route::put('/employees/{id}', [EmployeeController::class, 'update']);
     Route::delete('/employees/{id}', [EmployeeController::class, 'destroy']);
+
+    // user routes
+    Route::put('/users', [UserController::class, 'update']);
 });
 
 

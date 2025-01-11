@@ -9,6 +9,8 @@ use App\Repositories\AuthRepository;
 use App\Repositories\DivisionRepository;
 use App\Repositories\EmployeeRepository;
 use App\Interfaces\EmployeeRepositoryInterface;
+use App\Interfaces\UserRepositoryInterface;
+use App\Repositories\UserRepository;
 
 class RepositoryServiceProvider extends ServiceProvider
 {
@@ -20,6 +22,7 @@ class RepositoryServiceProvider extends ServiceProvider
         $this->app->bind(DivisionRepositoryInterface::class, DivisionRepository::class);
         $this->app->bind(AuthRepositoryInterface::class, AuthRepository::class);
         $this->app->bind(EmployeeRepositoryInterface::class, EmployeeRepository::class);
+        $this->app->bind(UserRepositoryInterface::class, UserRepository::class);
     }
 
     /**
